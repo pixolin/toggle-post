@@ -13,9 +13,8 @@
  }
 
 /* hiding the expandable section */
-.togglepost .tpexpand {
-	height: 0;
-	opacity: 0;
+.tpexpand {
+	display: none;
 }
 
 /* overriding styling for h2 */

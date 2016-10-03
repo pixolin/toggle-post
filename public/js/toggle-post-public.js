@@ -1,6 +1,4 @@
-(function( $ ) {
-	'use strict';
-
+jQuery(document).ready(function($){
 	/**
 	 * All of the code for your public-facing JavaScript source
 	 * should reside in this file.
@@ -29,4 +27,10 @@
 	 * practising this, we should strive to set a better example in our own work.
 	 */
 
-})( jQuery );
+	$(".togglepost").hover(function () {
+		$(".tpexpand").slideToggle('slow');
+	}, function(){
+		$(".tpexpand").slideToggle('slow');
+	});
+
+});
