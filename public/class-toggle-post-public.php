@@ -100,4 +100,33 @@ class Toggle_Post_Public {
 
 	}
 
+	public function register_shortcodes() {
+		function toggle_shortcode_setup( $atts ) {
+			$a = shortcode_atts( array(
+				'id' => '42',
+				'bar' => 'something else',
+			), $atts );
+
+			$id = $a['id'];
+			$tp_post = get_post( $id );
+
+			// Output
+			$out  = '<article id="post-' . $id . '" class="togglepost">'
+				. '<a href="' . get_permalink( $id ) . '">'
+					. get_the_post_thumbnail( $id, 'large' )
+				. '</a>'
+				. '<div class="tpexpand">'
+					. '<h2 class="tpheadline"><a href="' . get_permalink( $id ) . '">'
+						. $tp_post->post_title
+					. '</a></h2>'
+					. $tp_post->post_content
+				. '</div><!-- .tpexpand -->'
+				. '</article>';
+			return $out;
+			//var_dump($tp_post, true);
+		}
+		add_shortcode( 'toggle-post', 'toggle_shortcode_setup' );
+
+	}
+
 }
